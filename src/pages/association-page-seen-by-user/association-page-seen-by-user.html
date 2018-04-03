@@ -1,0 +1,28 @@
+<!--
+  Generated template for the AssociationPageSeenByUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AssociationPageSeenByUser</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-searchbar (change)="search($event.target.value)"></ion-searchbar>
+<div *ngIf="Asses">
+
+  <mbsc-listview [options]="listviewSettings">
+    <mbsc-listview-item *ngFor="let Ass of Asses | async" (click)="profileAssociation(Ass)">
+        <h3>{{ Ass.AssociationName }}</h3>
+        <p>{{ Ass.Domain }}</p>
+    </mbsc-listview-item>
+</mbsc-listview>
+
+</div>
+</ion-content>
